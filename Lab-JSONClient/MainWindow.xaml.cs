@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,18 @@ namespace Lab_JSONClient
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        async void callWebServiceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync("https://whoismyrepresentative.com/getall_mems.php" +
+                "?zip=11735&output=json");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string result = await response.Content.ReadAsStringAsync();
+            }
         }
     }
 }

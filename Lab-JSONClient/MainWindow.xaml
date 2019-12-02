@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="callWebServiceBtn" Content="Call Web Service" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="122" Height="70" Click="callWebServiceBtn_Click"/>
+        <TextBox x:Name="resultTextBox" HorizontalAlignment="Left" Height="229" Margin="78,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="663"/>
+        <Label Content="Result" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
