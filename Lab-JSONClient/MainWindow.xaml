@@ -8,8 +8,21 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="callWebServiceBtn" Content="Call Web Service" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="122" Height="70" Click="callWebServiceBtn_Click"/>
-        <TextBox x:Name="resultTextBox" HorizontalAlignment="Left" Height="229" Margin="78,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="663"/>
+        <TextBox x:Name="resultTextBox" HorizontalAlignment="Left" Height="112" Margin="78,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="663"/>
         <Label Content="Result" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="listViewRep" HorizontalAlignment="Left" Height="110" Margin="78,279,0,0" VerticalAlignment="Top" Width="623">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Party}" Header="Party"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding State}" Header="State"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding District}" Header="District"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Phone}" Header="Phone"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Office}" Header="Office"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Link}" Header="Link"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

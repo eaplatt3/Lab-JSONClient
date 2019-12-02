@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,9 +38,22 @@ namespace Lab_JSONClient
             if (response.IsSuccessStatusCode)
             {
                 result = await response.Content.ReadAsStringAsync();
+
+                resultTextBox.Text = result.ToString();
+
+                byte[] byteArray = Encoding.UTF8.GetBytes(result);
+                MemoryStream stream = new MemoryStream(byteArray);
+
+                DataContractJsonSerializer inputSerializer;
+                inputSerializer = new DataContractJsonSerializer(typeof(RepresentativeList));
+
+                RepresentativeList rl;
+                rl = (RepresentativeList)inputSerializer.ReadObject(stream);
+
+                listViewRep.ItemsSource = rl.Representatives;
             }
 
-            resultTextBox.Text = result.ToString();
+            
         }
     }
 }
