@@ -21,6 +21,7 @@ namespace Lab_JSONClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        string result;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,8 +35,10 @@ namespace Lab_JSONClient
 
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                result = await response.Content.ReadAsStringAsync();
             }
+
+            resultTextBox.Text = result.ToString();
         }
     }
 }
